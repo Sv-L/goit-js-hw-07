@@ -46,3 +46,7 @@
 .modal {
   max-width: 1130px;
 }
+
+.modal__image {
+  width: 100%;
+}

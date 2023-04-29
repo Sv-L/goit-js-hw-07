@@ -1,11 +1,17 @@
 import { galleryItems } from './gallery-items.js';
 
-let instance;
+const instance = basicLightbox.create(`
+    <div class="modal">
+        <img class="modal__image" src=''/>
+    </div>`);
+    
+const imgEl = instance.element().querySelector('.modal__image');
 const galleryListEl = document.querySelector('.gallery');
-galleryListEl.insertAdjacentHTML("afterbegin", galleryItemCreate(galleryItems));
+
+galleryListEl.insertAdjacentHTML("afterbegin", createGalleryItems(galleryItems));
 galleryListEl.addEventListener('click', onGalleryListElClick);
 
-function galleryItemCreate(galleryItems) {
+function createGalleryItems(galleryItems) {
    return galleryItems.map(galleryItem => {
         return `<li class="gallery__item">
   <a class="gallery__link" href="${galleryItem.original}">
@@ -30,14 +36,7 @@ function onGalleryListElClick(e) {
 };
 
 function createAndShowModal(event) {
-    instance = basicLightbox.create(`
-    <div class="modal">
-        <img 
-         class="gallery__image"
-         src='${event.target.dataset.source}'
-        />
-    </div>`);
-
+    imgEl.attributes.src.value = `${event.target.dataset.source}`;
     instance.show();
 };
 
