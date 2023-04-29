@@ -1,11 +1,11 @@
 import { galleryItems } from './gallery-items.js';
 
 const instance = basicLightbox.create(`
-    <div class="modal">
-        <img class="modal__image" src=''/>
-    </div>`);
+        <img
+        class="gallery__image"
+        src=''/>`);
     
-const imgEl = instance.element().querySelector('.modal__image');
+const imgEl = instance.element().querySelector('.gallery__image');
 const galleryListEl = document.querySelector('.gallery');
 
 galleryListEl.insertAdjacentHTML("afterbegin", createGalleryItems(galleryItems));
