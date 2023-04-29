@@ -13,13 +13,13 @@ galleryListEl.addEventListener('click', onGalleryListElClick);
 
 function createGalleryItems(galleryItems) {
    return galleryItems.map(galleryItem => {
-        return `<li class="gallery__item">
-  <a class="gallery__link" href="${galleryItem.original}">
+        return `<li class='gallery__item'>
+  <a class='gallery__link' href='${galleryItem.original}'>
     <img
-      class="gallery__image"
-      src="${galleryItem.preview}"
-      data-source="${galleryItem.original}"
-      alt="${galleryItem.description}"
+      class='gallery__image'
+      src='${galleryItem.preview}'
+      data-source='${galleryItem.original}'
+      alt='${galleryItem.description}'
     />
   </a>
 </li>`
