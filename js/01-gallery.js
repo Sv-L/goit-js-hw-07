@@ -33,7 +33,7 @@ function onGalleryListElClick(e) {
         return;
     }
     createAndShowModal(e);
-    window.addEventListener('keydown', onModalKeyDownEsc);
+    window.addEventListener('keydown', onModalKeyDownEsc, {once: true});
 };
 
 function createAndShowModal(event) {
@@ -44,6 +44,5 @@ function createAndShowModal(event) {
 function onModalKeyDownEsc(event) {
         if (event.key === 'Escape') {
             instance.close();
-            window.removeEventListener('keydown', onModalKeyDownEsc);
         }
 };
